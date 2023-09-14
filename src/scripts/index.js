@@ -1,4 +1,5 @@
-import 'regenerator-runtime';
-import '../styles/main.scss';
+import 'regenerator-runtime'
+import '../styles/main.scss'
+import main from './main.js'
 
-console.log('Hello Coders! :)');
+document.addEventListener('DOMContentLoaded', main)
