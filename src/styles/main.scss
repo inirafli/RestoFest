@@ -1,6 +1,7 @@
 @import 'fonts';
 
 $primary-color: #9E6400;
+$sub-primary-color: #e89300;
 $secondary-color: #FFFFFF;
 
 * {
@@ -34,7 +35,7 @@ header {
 
         .header-menu {
             display: none;
-            font-weight: 700;
+            font-weight: 600;
             margin-bottom: .35rem;
             color: $primary-color;
             font-size: 2rem;
@@ -79,14 +80,53 @@ header {
 
 .hero {
     display: flex;
+    min-height: 360px;
     align-items: center;
-    height: 360px;
     width: 100%;
+    position: relative;
 
-    img {
-        object-fit: cover;
+    &::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
         width: 100%;
         height: 100%;
+        background-color: rgba(0, 0, 0, 0.35);
+        z-index: 1;
+    }
+
+    background-image: url('../public/images/heros/hero-image_2.jpg');
+    background-position: center;
+    background-size: cover;
+    text-align: center;
+
+    .hero-item {
+        display: flex;
+        flex-flow: column nowrap;
+        align-items: center;
+        margin: 0 auto;
+        padding: 2rem 1.5rem;
+        max-width: 800px;
+        gap: 1.5rem;
+        z-index: 2;
+
+        .hero-title {
+            margin: 0;
+            color: $secondary-color;
+            font-size: 2.5rem;
+            font-weight: 600;
+
+            span {
+                color: $sub-primary-color;
+            }
+        }
+
+        .hero-tagline {
+            margin: 0;
+            color: $secondary-color;
+            font-size: 1.25rem;
+        }
     }
 }
 
