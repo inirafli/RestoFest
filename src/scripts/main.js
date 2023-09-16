@@ -3,6 +3,7 @@ const main = () => {
     const hero = document.querySelector('.hero')
     const main = document.querySelector('main')
     const drawer = document.querySelector('#drawer')
+    const navLinks = document.querySelectorAll('.nav-item a');
 
     menu.addEventListener('click', event => {
         drawer.classList.toggle('open')
@@ -15,6 +16,12 @@ const main = () => {
 
     main.addEventListener('click', () => {
         drawer.classList.remove('open')
+    })
+
+    navLinks.forEach(link => {
+        link.addEventListener('click', () => {
+            drawer.classList.remove('open')
+        })
     })
 
     fetch('/data/DATA.json')
@@ -42,7 +49,7 @@ const createRestaurantCard = restaurant => {
 
     const img = document.createElement('img')
     img.src = restaurant.pictureId
-    img.alt = restaurant.name
+    img.alt = `Gambar Restoran ${restaurant.name}`
     card.appendChild(img)
 
     const restaurantInfo = document.createElement('div')

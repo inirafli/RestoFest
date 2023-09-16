@@ -34,7 +34,7 @@ header {
     .app-bar-title {
         display: flex;
         align-items: center;
-        gap: 1rem;
+        gap: .5rem;
 
         .header-menu {
             display: none;
@@ -42,6 +42,7 @@ header {
             margin-bottom: .35rem;
             color: $primary-color;
             font-size: 1.5rem;
+            padding: .75rem;
         }
 
         h1 {
@@ -81,6 +82,8 @@ header {
     }
 
     @media screen and (max-width: 781px) {
+        padding: 0 1rem;
+
         .app-bar-title {
             .header-menu {
                 display: block;
@@ -179,11 +182,22 @@ header {
             color: $secondary-color;
             font-size: 1.25rem;
         }
+
+        @media screen and (max-width: 499px) {
+            .hero-title {
+                font-size: 2.25rem;
+            }
+
+            .hero-tagline {
+                font-size: 1rem;
+            }
+        }
     }
 }
 
 main {
     position: relative;
+    scroll-margin-top: 2.5rem;
 }
 
 .content {
@@ -201,17 +215,12 @@ main {
 
 .restaurant-list {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(210px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
     padding: 0.5rem 1rem;
     gap: 1.5rem 1rem;
 
-    @media screen and (min-width: 720px) {
-        grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-    }
-
-    @media screen and (min-width: 940px) {
+    @media screen and (min-width: 1024px) {
         padding: 0.5rem 2rem;
-        grid-template-columns: repeat(auto-fill, minmax(310px, 1fr));
     }
 }
 
@@ -228,7 +237,8 @@ main {
     position: relative;
 
     img {
-        height: 40%;
+        width: auto;
+        height: 35%;
         object-fit: cover;
     }
 
@@ -304,5 +314,21 @@ footer {
         p {
             margin: 0;
         }
+    }
+}
+
+.skip-to-content {
+    position: absolute;
+    top: -40px;
+    left: 1%;
+    font-weight: 600;
+    padding: .5rem .75rem;
+    text-decoration: none;
+    z-index: 1000;
+
+    &:focus {
+        top: 2%;
+        background-color: $primary-color;
+        color: $secondary-color;
     }
 }
