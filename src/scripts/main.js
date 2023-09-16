@@ -24,6 +24,10 @@ const main = () => {
         })
     })
 
+    // For Production
+    // fetch('/dist/data/DATA.json')
+
+    // For Development
     fetch('/data/DATA.json')
         .then(response => response.json())
         .then(data => {
