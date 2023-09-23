@@ -1,5 +1,3 @@
-@import 'fonts';
-
 $primary-color: #9E6400;
 $sub-primary-color: #e89300;
 $secondary-color: #FFFFFF;
@@ -15,6 +13,7 @@ body {
 }
 
 header {
+    flex: 2;
     display: inline;
 }
 
