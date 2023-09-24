@@ -1,29 +1,4 @@
 const main = () => {
-  const menu = document.querySelector('#menu')
-  const hero = document.querySelector('.hero')
-  const main = document.querySelector('main')
-  const drawer = document.querySelector('#drawer')
-  const navLinks = document.querySelectorAll('.nav-item a');
-
-  menu.addEventListener('click', (event) => {
-    drawer.classList.toggle('open')
-    event.stopPropagation()
-  })
-
-  hero.addEventListener('click', () => {
-    drawer.classList.remove('open')
-  })
-
-  main.addEventListener('click', () => {
-    drawer.classList.remove('open')
-  })
-
-  navLinks.forEach((link) => {
-    link.addEventListener('click', () => {
-      drawer.classList.remove('open')
-    })
-  })
-
   // For Production
   // fetch('/dist/data/DATA.json')
 

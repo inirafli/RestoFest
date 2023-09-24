@@ -196,6 +196,7 @@ header {
 }
 
 main {
+    min-height: 100vh;
     position: relative;
     scroll-margin-top: 2.5rem;
 }
@@ -267,9 +268,13 @@ main {
 
         .restaurant-name {
             font-size: 1.35rem;
-            color: $primary-color;
             font-weight: 700;
             margin: 0;
+            
+            a {
+                text-decoration: none;
+                color: $primary-color;
+            }
         }
 
         .restaurant-rating {
@@ -309,7 +314,7 @@ footer {
     .footer-content {
         width: 100%;
         margin: 0 auto;
-        padding: 0 1rem;
+        padding: 0 1.5rem;
 
         p {
             margin: 0;
