@@ -31,7 +31,7 @@ const createRestoDetailTemplate = (resto) => {
       .map((category) => `<li class="category-item">${category.name}</li>`)
       .join('')
 
-  const foodList = menus.drinks
+  const foodList = menus.foods
       .map((food) => `<li class="menu-item">${food.name}</li>`)
       .join('')
 
@@ -89,7 +89,7 @@ const createRestoDetailTemplate = (resto) => {
           </div>
           <div class="menu-rating">
             <h3 class="general-label">Rating Restoran</h3>
-            <p class="star-rating">⭐️ ${rating}</p>
+            <p class="star-rating">⭐️ ${rating}/5</p>
           </div>
           <div class="customer-reviews">
             <h3 class="general-label">Ulasan Pelanggan</h3>

@@ -1,6 +1,7 @@
 $primary-color: #9E6400;
 $sub-primary-color: #e89300;
 $secondary-color: #FFFFFF;
+$sub-secondary-color: #d7d7d7;
 
 * {
     box-sizing: border-box;
@@ -217,12 +218,12 @@ main {
         display: flex;
         padding: 0 4rem;
         flex-flow: column nowrap;
-        gap: 2rem;
+        gap: 1.25rem 2rem;
 
         .restaurant-overview {
             width: 100%;
             display: flex;
-            gap: 2rem;
+            gap: 1.25rem 2rem;
             align-items: start;
             justify-content: center;
 
@@ -298,6 +299,7 @@ main {
 
             .categories-list {
                 display: flex;
+                flex-flow: row wrap;
                 list-style: none;
                 padding: 0;
                 gap: .25rem;
@@ -312,10 +314,16 @@ main {
             }
 
             .menu-list {
-                list-style-type: decimal;
+                display: flex;
+                flex-flow: row wrap;
+                padding: 0;
+                gap: .25rem;
+                list-style-type: none;
 
                 .menu-item {
-                    padding: .15rem 0;
+                    padding: .5rem 1.25rem;
+                    border-radius: 1rem;
+                    background-color: $sub-secondary-color;
                     font-size: 1.1rem;
                 }
             }
@@ -383,14 +391,14 @@ main {
     background-color: $secondary-color;
     border-radius: .5rem;
     overflow: hidden;
-    height: 490px;
+    height: 380px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.25);
     transition: transform 0.3s;
     position: relative;
 
     img {
         width: auto;
-        height: 35%;
+        height: 50%;
         object-fit: cover;
     }
 
@@ -426,6 +434,10 @@ main {
                 text-decoration: none;
                 color: $primary-color;
             }
+
+            a:hover {
+                color: $sub-primary-color;
+            }
         }
 
         .restaurant-rating {
@@ -439,11 +451,11 @@ main {
             margin-top: .75rem;
             font-size: .95rem;
             line-height: 125%;
-            overflow-y: scroll;
-
-            &::-webkit-scrollbar {
-                width: 0;
-            }
+            overflow: hidden;
+            text-overflow: ellipsis;
+            display: -webkit-box;
+            -webkit-line-clamp: 4;
+            -webkit-box-orient: vertical;
         }
     }
 
