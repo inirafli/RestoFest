@@ -483,6 +483,26 @@ footer {
     }
 }
 
+.like {
+    width: 55px;
+    height: 55px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: $primary-color;
+
+    position: fixed;
+    bottom: 1rem;
+    right: 1rem;
+    border-radius: 50%;
+    border: 0;
+
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: $sub-secondary-color;
+    cursor: pointer;
+}
+
 .skip-to-content {
     position: absolute;
     top: -40px;
