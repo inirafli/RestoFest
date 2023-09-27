@@ -97,6 +97,21 @@ const createRestoDetailTemplate = (resto) => {
               ${reviewList}
             </div>
           </div>
+          <div class="add-review-container">
+            <h3 class="general-label">Tambahkan Review Anda</h3>
+            <form id="reviewForm" class="review-form">
+              <div class="review-name">
+                <label for="reviewName">Nama Anda:</label>
+                <input type="text" id="reviewName" name="reviewName" required>
+              </div>
+              <div class="review-text">
+                <label for="reviewText">Tulis Review Anda:</label>
+                <textarea id="reviewText" name="reviewText" rows="4" 
+                required></textarea>
+              </div>
+              <button type="submit">Submit Review</button>
+            </form>
+          </div>
         </div>
       </div>
     `

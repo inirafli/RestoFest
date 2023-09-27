@@ -2,9 +2,11 @@ import UrlParser from '../../routes/url-parser'
 import DicodingRestoSource from '../../data/dicoding-resto-source'
 import { createRestoDetailTemplate } from '../templates/template-creator'
 import LikeButtonInit from '../../utils/like-button-initiator'
+import SubmitButtonInit from '../../utils/submit-button-initiator'
 
 const Detail = {
   async render() {
+    console.log('Berada di Detail')
     return `
       <div id="likeButtonContainer"></div>
       <div class="detail-restaurant">
@@ -22,6 +24,14 @@ const Detail = {
     })
 
     detailContainer.innerHTML = createRestoDetailTemplate(resto)
+
+    const reviewForm = document.querySelector('#reviewForm')
+    if (reviewForm) {
+      SubmitButtonInit.init({
+        reviewForm: reviewForm,
+        restoId: resto.id,
+      })
+    }
   },
 }
 

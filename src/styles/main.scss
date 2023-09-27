@@ -369,6 +369,63 @@ main {
                 }
             }
 
+            .add-review-container {
+                display: flex;
+                flex-flow: column nowrap;
+                max-width: 360px;
+                gap: 1.5rem;
+
+                .review-form {
+                    display: flex;
+                    width: 100%;
+                    flex-flow: column nowrap;
+                    gap: 1rem;
+
+                    .review-name,
+                    .review-text {
+                        display: flex;
+                        flex-flow: column nowrap;
+                        gap: .5rem;
+
+                        label {
+                            color: $primary-color;
+                            font-weight: 600;
+                        }
+
+                        input,
+                        textarea {
+                            font-family: 'Rubik', sans-serif;
+                            padding: .5rem;
+                            font-size: 1.1rem;
+                            border-radius: .5rem;
+                            border: 1px solid $primary-color;
+
+                            &:focus {
+                                outline: none;
+                                border: 2px solid $primary-color;
+                            }
+                        }
+                    }
+                }
+
+                button {
+                    width: 50%;
+                    padding: .75rem 1rem;
+                    font-size: 1rem;
+                    border: 1px solid $primary-color;
+                    border-radius: .5rem;
+                    color: $primary-color;
+                    font-weight: 600;
+                    cursor: pointer;
+                    transition: all .3s ease-in-out;
+
+                    &:hover {
+                        background-color: $primary-color;
+                        color: $secondary-color;
+                    }
+                }
+            }
+
         }
     }
 }
