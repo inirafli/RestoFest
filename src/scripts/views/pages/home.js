@@ -6,8 +6,6 @@ const Home = {
     const hero = document.querySelector('.hero')
     hero.style.display = 'flex'
 
-    console.log('Berada di Home')
-
     return `<h2 class="content-label">Eksplorasi Restoran</h2>
             <div class="restaurant-list"></div>`
   },

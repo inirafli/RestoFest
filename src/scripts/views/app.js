@@ -3,12 +3,13 @@ import UrlParser from '../routes/url-parser'
 import routes from '../routes/routes'
 
 class App {
-  constructor({ button, hero, navLinks, drawer, content }) {
+  constructor({ button, hero, navLinks, drawer, content, loading }) {
     this._button = button
     this._hero = hero
     this._navLinks = navLinks
     this._drawer = drawer
     this._content = content
+    this._loading = loading
 
     this._initAppShell()
   }
@@ -24,6 +25,8 @@ class App {
   }
 
   async renderPage() {
+    this.showLoading()
+
     const url = UrlParser.parseActiveUrlWithCombiner()
     const page = routes[url]
 
@@ -33,6 +36,16 @@ class App {
 
     this._content.innerHTML = await page.render()
     await page.afterRender()
+
+    this.hideLoading()
+  }
+
+  showLoading() {
+    this._loading.style.display = 'flex'
+  }
+
+  hideLoading() {
+    this._loading.style.display = 'none'
   }
 }
 

@@ -10,6 +10,7 @@ const app = new App({
   navLinks: document.querySelectorAll('.nav-item a'),
   drawer: document.querySelector('#drawer'),
   content: document.querySelector('.content'),
+  loading: document.querySelector('.loading-container'),
 })
 
 window.addEventListener('hashchange', () => {
@@ -18,5 +19,5 @@ window.addEventListener('hashchange', () => {
 
 window.addEventListener('load', () => {
   app.renderPage()
-  // swRegister()
+  swRegister()
 })

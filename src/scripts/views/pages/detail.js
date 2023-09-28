@@ -6,7 +6,6 @@ import SubmitButtonInit from '../../utils/submit-button-initiator'
 
 const Detail = {
   async render() {
-    console.log('Berada di Detail')
     return `
       <div id="likeButtonContainer"></div>
       <div class="detail-restaurant">

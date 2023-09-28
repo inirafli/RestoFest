@@ -3,8 +3,6 @@ import { createRestoItemTemplate } from '../templates/template-creator'
 
 const Favorite = {
   async render() {
-    console.log('Berada di Favorite')
-
     return `<h2 class="content-label">Restoran Favorit</h2>
             <div class="restaurant-list"></div>`
   },
