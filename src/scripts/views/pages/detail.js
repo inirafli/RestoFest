@@ -1,7 +1,8 @@
 import UrlParser from '../../routes/url-parser'
 import DicodingRestoSource from '../../data/dicoding-resto-source'
 import { createRestoDetailTemplate } from '../templates/template-creator'
-import LikeButtonInit from '../../utils/like-button-initiator'
+import FavoriteRestoDB from '../../data/favorite-restos-idb'
+import LikeButtonPresenter from '../../utils/like-button-presenter'
 import SubmitButtonInit from '../../utils/submit-button-initiator'
 
 const Detail = {
@@ -17,8 +18,9 @@ const Detail = {
     const resto = await DicodingRestoSource.getRestoDetail(url.id)
     const detailContainer = document.querySelector('.detail-restaurant')
 
-    LikeButtonInit.init({
+    LikeButtonPresenter.init({
       likeButtonContainer: document.querySelector('#likeButtonContainer'),
+      favoriteRestos: FavoriteRestoDB,
       resto: resto,
     })
 

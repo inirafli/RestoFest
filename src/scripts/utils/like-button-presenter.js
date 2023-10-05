@@ -4,9 +4,10 @@ import {
   createLikedButtonTemplate,
 } from '../views/templates/template-creator'
 
-const LikeButtonInit = {
-  async init({ likeButtonContainer, resto }) {
+const LikeButtonPresenter = {
+  async init({ likeButtonContainer, favoriteRestos, resto }) {
     this._likeButtonContainer = likeButtonContainer,
+    this._favoriteRestos = favoriteRestos
     this._resto = resto
 
     await this._renderButton()
@@ -48,4 +49,4 @@ const LikeButtonInit = {
   },
 }
 
-export default LikeButtonInit
+export default LikeButtonPresenter
