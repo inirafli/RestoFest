@@ -1,4 +1,613 @@
+$primary-color: #9E6400;
+$sub-primary-color: #e89300;
+$secondary-color: #FFFFFF;
+$sub-secondary-color: #d7d7d7;
+
+* {
+    box-sizing: border-box;
+}
+
 body {
     margin: 0;
     padding: 0;
+    font-family: 'Rubik', sans-serif;
+}
+
+header {
+    flex: 2;
+    display: inline;
+}
+
+.app-bar {
+    position: sticky;
+    top: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 2rem;
+    min-height: 56px;
+    transition: min-height 0.3s;
+    width: 100%;
+    background-color: $secondary-color;
+    z-index: 100;
+
+    .app-bar-title {
+        display: flex;
+        align-items: center;
+        gap: .5rem;
+
+        .header-menu {
+            display: none;
+            font-weight: 600;
+            margin-bottom: .35rem;
+            color: $primary-color;
+            font-size: 1.5rem;
+            padding: .75rem;
+            border: none;
+        }
+
+        h1 {
+            color: $primary-color;
+            font-size: 1.75rem;
+        }
+    }
+
+    .nav {
+        display: flex;
+        align-items: center;
+
+        .nav-list {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            gap: 1.5rem;
+
+            .nav-item {
+                a {
+                    padding: .75rem 1.25rem;
+                    border-radius: .5rem;
+                    text-decoration: none;
+                    color: $primary-color;
+                    font-size: 1.15rem;
+                    font-weight: 600;
+                    transition: all 0.3s;
+
+                    &:hover {
+                        color: $secondary-color;
+                        background-color: $primary-color;
+                    }
+                }
+            }
+        }
+    }
+
+    @media screen and (max-width: 781px) {
+        padding: 0 1rem;
+
+        .app-bar-title {
+            .header-menu {
+                display: block;
+            }
+        }
+
+        .nav {
+            display: block;
+            position: absolute;
+            background-color: $primary-color;
+            border-radius: 0 1rem 1rem 0;
+            padding: .75rem;
+            top: 1.25rem;
+            left: 0;
+            width: 60%;
+            z-index: 10;
+
+            transform: translate(-100%, 0);
+            transition: all 0.3s ease;
+
+            .nav-list {
+                display: block;
+
+                .nav-item {
+                    display: list-item;
+                    width: 100%;
+                    text-align: left;
+                    padding: .5rem;
+
+                    a {
+                        color: $secondary-color;
+                        display: inline-block;
+                        width: 100%;
+
+                        &:hover {
+                            color: $primary-color;
+                            background-color: $secondary-color;
+                        }
+                    }
+                }
+            }
+
+            &.open {
+                transform: translate(0, 0);
+            }
+        }
+    }
+}
+
+.hero {
+    display: flex;
+    min-height: 360px;
+    align-items: center;
+    width: 100%;
+    position: relative;
+    text-align: center;
+
+    .hero-image {
+        width: 100%;
+        height: 360px;
+        object-fit: cover;
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: 1;
+    }
+
+    &::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.35);
+        z-index: 2;
+    }
+
+    .hero-item {
+        display: flex;
+        flex-flow: column nowrap;
+        align-items: center;
+        margin: 0 auto;
+        padding: 2rem 1.5rem;
+        max-width: 800px;
+        gap: 1.5rem;
+        z-index: 2;
+
+        .hero-title {
+            margin: 0;
+            color: $secondary-color;
+            font-size: 2.5rem;
+            font-weight: 600;
+
+            span {
+                color: $sub-primary-color;
+            }
+        }
+
+        .hero-tagline {
+            margin: 0;
+            color: $secondary-color;
+            font-size: 1.25rem;
+        }
+
+        @media screen and (max-width: 499px) {
+            .hero-title {
+                font-size: 2.25rem;
+            }
+
+            .hero-tagline {
+                font-size: 1rem;
+            }
+        }
+    }
+}
+
+main {
+    min-height: 100vh;
+    position: relative;
+    scroll-margin-top: 2.5rem;
+}
+
+.content {
+    padding: 1rem 1rem 2rem;
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    gap: 1rem;
+
+    .content-label {
+        color: $primary-color;
+        text-align: center;
+    }
+
+    .detail-restaurant {
+        display: flex;
+        padding: 0 4rem;
+        flex-flow: column nowrap;
+        gap: 1.25rem 2rem;
+
+        .restaurant-overview {
+            width: 100%;
+            display: flex;
+            gap: 1.25rem 2rem;
+            align-items: start;
+            justify-content: center;
+
+            .image-container {
+                flex: 1;
+
+                img {
+                    width: 100%;
+                    object-fit: cover;
+                    border-radius: 1rem;
+                }
+            }
+
+            .detail-info {
+                flex: 1;
+                display: flex;
+                flex-flow: column nowrap;
+
+                h3,
+                p {
+                    margin: 0;
+                }
+
+                .detail-name {
+                    font-size: 1.75rem;
+                    color: $primary-color;
+                }
+
+                .detail-description {
+                    margin: .5rem 0;
+                    line-height: 125%;
+                    overflow: hidden;
+                    text-overflow: ellipsis;
+                    display: -webkit-box;
+                    -webkit-line-clamp: 5;
+                    -webkit-box-orient: vertical;
+                }
+
+                .restaurant-location {
+                    margin-top: .5rem;
+
+                    .location-label {
+                        margin-bottom: .5rem;
+                        color: $primary-color;
+                        font-weight: 600;
+                    }
+
+                    .location-content {
+                        font-size: 1.1rem;
+                    }
+                }
+            }
+
+            @media screen and (max-width: 940px) {
+                flex-flow: column nowrap;
+            }
+        }
+
+        @media screen and (max-width: 740px) {
+            padding: 0 .75rem;
+        }
+
+        .restaurant-general {
+            display: flex;
+            flex-flow: column nowrap;
+            gap: .5rem;
+
+            .general-label {
+                margin: 0;
+                color: $primary-color;
+                font-weight: 600;
+            }
+
+            .categories-list {
+                display: flex;
+                flex-flow: row wrap;
+                list-style: none;
+                padding: 0;
+                gap: .25rem;
+
+                .category-item {
+                    padding: .5rem 1.25rem;
+                    border-radius: 1rem;
+                    color: $secondary-color;
+                    background-color: $primary-color;
+                    font-weight: 600;
+                }
+            }
+
+            .menu-list {
+                display: flex;
+                flex-flow: row wrap;
+                padding: 0;
+                gap: .25rem;
+                list-style-type: none;
+
+                .menu-item {
+                    padding: .5rem 1.25rem;
+                    border-radius: 1rem;
+                    background-color: $sub-secondary-color;
+                    font-size: 1.1rem;
+                }
+            }
+
+            .star-rating {
+                margin: 1rem 0;
+                font-size: 2.25rem;
+            }
+
+            .reviews-list {
+                display: grid;
+                grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+                padding: 1.25rem 0;
+                gap: 1.25rem;
+
+                .review-card {
+                    border-radius: .5rem;
+                    border: 1px solid $primary-color;
+                    padding: 1rem 1.5rem;
+                    display: flex;
+                    flex-direction: column;
+                    text-align: left;
+
+                    .customer-name {
+                        color: $primary-color;
+                        margin: 0;
+                        font-weight: 700;
+                        margin-bottom: 0.5rem;
+                    }
+
+                    .customer-review {
+                        margin: 0;
+                        margin-bottom: 1rem;
+                        font-style: italic;
+                    }
+
+                    .review-date {
+                        margin: 0;
+                        font-size: .85rem;
+                        text-align: right;
+                        font-weight: 300;
+                    }
+                }
+            }
+
+            .add-review-container {
+                display: flex;
+                flex-flow: column nowrap;
+                max-width: 360px;
+                gap: 1.5rem;
+
+                .review-form {
+                    display: flex;
+                    width: 100%;
+                    flex-flow: column nowrap;
+                    gap: 1rem;
+
+                    .review-name,
+                    .review-text {
+                        display: flex;
+                        flex-flow: column nowrap;
+                        gap: .5rem;
+
+                        label {
+                            color: $primary-color;
+                            font-weight: 600;
+                        }
+
+                        input,
+                        textarea {
+                            font-family: 'Rubik', sans-serif;
+                            padding: .75rem;
+                            font-size: 1.1rem;
+                            border-radius: .5rem;
+                            border: 1px solid $primary-color;
+
+                            &:focus {
+                                outline: none;
+                                border: 2px solid $primary-color;
+                            }
+                        }
+                    }
+                }
+
+                button {
+                    width: 50%;
+                    padding: .75rem 1rem;
+                    font-size: 1rem;
+                    border: 1px solid $primary-color;
+                    border-radius: .5rem;
+                    color: $primary-color;
+                    font-weight: 600;
+                    cursor: pointer;
+                    transition: all .3s ease-in-out;
+
+                    &:hover {
+                        background-color: $primary-color;
+                        color: $secondary-color;
+                    }
+                }
+            }
+
+        }
+    }
+}
+
+.restaurant-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    padding: 0.5rem 1rem;
+    gap: 1.5rem 1rem;
+
+    @media screen and (min-width: 1024px) {
+        padding: 0.5rem 2rem;
+    }
+}
+
+
+.card {
+    display: flex;
+    flex-flow: column nowrap;
+    background-color: $secondary-color;
+    border-radius: .5rem;
+    overflow: hidden;
+    height: 380px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.25);
+    transition: transform 0.3s;
+    position: relative;
+
+    img {
+        width: auto;
+        height: 50%;
+        object-fit: cover;
+    }
+
+    .restaurant-info {
+        display: flex;
+        flex-flow: column nowrap;
+        align-items: start;
+        padding: 1rem 1.5rem 1.5rem;
+        overflow: hidden;
+
+        .restaurant-label {
+            position: absolute;
+            top: 1rem;
+            left: 0;
+            background-color: $primary-color;
+            color: $secondary-color;
+            padding: .75rem 1rem;
+            border-radius: 0 .5rem .5rem 0;
+
+            p {
+                margin: 0;
+                font-size: .75rem;
+                font-weight: 600;
+            }
+        }
+
+        .restaurant-name {
+            font-size: 1.35rem;
+            font-weight: 700;
+            margin: 0;
+
+            a {
+                text-decoration: none;
+                color: $primary-color;
+                padding: .65rem 0;
+            }
+
+            a:hover {
+                color: $sub-primary-color;
+            }
+        }
+
+        .restaurant-rating {
+            margin: 0;
+            margin-top: .5rem;
+            font-size: 1.15rem;
+        }
+
+        .restaurant-description {
+            margin: 0;
+            margin-top: .75rem;
+            font-size: .95rem;
+            line-height: 125%;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            display: -webkit-box;
+            -webkit-line-clamp: 4;
+            -webkit-box-orient: vertical;
+        }
+    }
+
+    &:hover {
+        transform: translateY(-5px);
+    }
+}
+
+footer {
+    background-color: $primary-color;
+    color: $secondary-color;
+    padding: 1rem 0;
+    text-align: center;
+    font-size: 0.875rem;
+    font-weight: 600;
+
+    .footer-content {
+        width: 100%;
+        margin: 0 auto;
+        padding: 0 1.5rem;
+
+        p {
+            margin: 0;
+        }
+    }
+}
+
+.like {
+    width: 55px;
+    height: 55px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: $primary-color;
+
+    position: fixed;
+    bottom: 1rem;
+    right: 1rem;
+    border-radius: 50%;
+    border: 0;
+
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: $sub-secondary-color;
+    cursor: pointer;
+}
+
+.loading-container {
+    position: fixed;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    height: 100vh;
+    z-index: 1000;
+
+    .loading-spinner {
+        border: 4px solid rgba(255, 255, 255, 0.3);
+        border-top: 4px solid $primary-color;
+        border-radius: 50%;
+        width: 40px;
+        height: 40px;
+        animation: spin 1s linear infinite;
+
+        @keyframes spin {
+            0% {
+                transform: rotate(0deg);
+            }
+
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+    }
+}
+
+.skip-to-content {
+    position: fixed;
+    top: -40px;
+    left: 1%;
+    font-weight: 600;
+    padding: .5rem .75rem;
+    text-decoration: none;
+    z-index: 1000;
+
+    &:focus {
+        top: 2%;
+        background-color: $primary-color;
+        color: $secondary-color;
+    }
 }
