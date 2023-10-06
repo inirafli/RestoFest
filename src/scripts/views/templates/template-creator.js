@@ -7,7 +7,7 @@ const createRestoItemTemplate = (resto) => {
 
   return `
     <article class="card">
-      <img src="${imageUrl}" alt="${name}">
+      <img src="${imageUrl}" alt="${name}" loading="lazy">
       <div class="restaurant-info">
         <div class="restaurant-label">
           <p class="restaurant-city">Kota ${city}</p>
