@@ -1,4 +1,3 @@
-/* eslint-disable no-unused-vars */
 import 'regenerator-runtime'
 import '../styles/main.scss'
 import App from './views/app'
@@ -19,5 +18,5 @@ window.addEventListener('hashchange', () => {
 
 window.addEventListener('load', () => {
   app.renderPage()
-  // swRegister()
+  swRegister()
 })
