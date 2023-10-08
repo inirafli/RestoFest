@@ -5,7 +5,7 @@ const DrawerInitiator = {
     })
 
     hero.addEventListener('click', (event) => {
-      this._toggleDrawer(event, drawer)
+      this._closeDrawer(event, drawer)
     })
 
     navLinks.forEach((link) => {

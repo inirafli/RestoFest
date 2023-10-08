@@ -59,6 +59,9 @@ module.exports = merge(common, {
       ],
       cleanupOutdatedCaches: true,
     }),
-    new BundleAnalyzerPlugin(),
+    new BundleAnalyzerPlugin({
+      analyzerMode: 'static',
+      openAnalyzer: false,
+    }),
   ],
 });
